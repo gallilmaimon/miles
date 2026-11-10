@@ -36,6 +36,7 @@ try:
 except ValueError as e:
     sys.exit(str(e))
 
+# an E2B sandbox's max lifetime derives from OPENENV_MAX_ROLLOUT_TIME_SECONDS: raise that too for a longer cap
 CAP_S = float(os.getenv("GOLDEN_TASK_CAP_S", "1800"))
 
 # base64 is shell-safe (A-Za-z0-9+/=), so each chunk rides an unquoted printf.
